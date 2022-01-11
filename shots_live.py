@@ -1,20 +1,27 @@
+import numpy as np
+import matplotlib.pyplot as plt
 
-import pygame
+x = np.arange(-10,10)
+y = x**2
 
-window = pygame.display.set_mode((500,500))
-red = (200,0,0)
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.plot(x,y)
 
-circleX = 100
-circleY = 100
-radius = 10
+coords = []
 
-active = True
+def onclick(event):
+    global ix, iy
+    ix, iy = event.xdata, event.ydata
+    print('x = %d, y = %d'%(ix, iy))
 
-while active:
-   for event in pygame.event.get():
-      if event.type == pygame.QUIT:
-         active = False
+    global coords
+    coords.append((ix, iy))
 
-   pygame.draw.circle(window,red,(circleX,circleY),radius) # DRAW CIRCLE
+    if len(coords) == 2:
+        fig.canvas.mpl_disconnect(cid)
 
-   pygame.display.update()
+    return coords
+cid = fig.canvas.mpl_connect('button_press_event', onclick)
+
+plt.show()
