@@ -107,6 +107,7 @@ X, Y = np.meshgrid(x_range, y_range)
 mesh_color = area_grid.T
 
 fig, (ax1, ax2) = plt.subplots(2, figsize=(5, 8))
+fig.suptitle('A projectile motion simulator for FRC 2022. \n The color gradient shows the size of the allowable error (pitch*yaw*speed) in making the shot', wrap=True)
 
 shoot_state = [-2.8, 2.5, 0.4, 8]
 
