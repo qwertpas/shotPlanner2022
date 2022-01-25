@@ -12,7 +12,8 @@ g = 9.81
 rim_width = 1.2192 #4ft
 rim_height = 2.64
 cargo_radius = 0.2413/2
-drag_coeff = 0.23 #https://www.chiefdelphi.com/t/galactech-4926-build-blog-2022/398705/5
+# drag_coeff = 0.23 #https://www.chiefdelphi.com/t/galactech-4926-build-blog-2022/398705/5
+drag_coeff = 0.50 #https://www.chiefdelphi.com/t/galactech-4926-build-blog-2022/398705/5
 cargo_mass = 0.27
 air_density = 1.225
 
@@ -74,7 +75,7 @@ def flight_model(t, s):
     Fd = 0.5 * air_density * cargo_area * drag_coeff * v_squared
 
     Fx = -Fd*cos_component
-    Fy = -Fd*sin_component - g
+    Fy = -Fd*sin_component - cargo_mass*g
 
     dvx = Fx / cargo_mass
     dvy = Fy / cargo_mass
