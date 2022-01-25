@@ -161,8 +161,8 @@ def repaint_ax2():
     area, angles, lower_bound_pts, upper_bound_pts = get_ang_speed_space(shoot_state[0], shoot_state[2], doShow=False)
     ax2.fill_between(angles, lower_bound_pts, upper_bound_pts, color='green')
     ax2.set(xlabel="angle (degrees)", ylabel="speed (m/s)")
-    ax2.set_xlim([5, 85])
-    ax2.set_ylim([0, 25])
+    ax2.set_xlim([20, 85])
+    ax2.set_ylim([5, 15])
     ax2.set_title("Drag dot to change shoot angle and speed")
 
     vx = shoot_state[1]
